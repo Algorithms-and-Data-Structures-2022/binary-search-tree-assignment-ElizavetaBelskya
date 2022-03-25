@@ -54,7 +54,11 @@ namespace assignment {
   }
 
   Node* BinarySearchTree::root() const {
-    return root_;
+    if (root_ != nullptr) {
+      return root_;
+    } else {
+      return nullptr;
+    }
   }
 
   // вспомогательные методы
