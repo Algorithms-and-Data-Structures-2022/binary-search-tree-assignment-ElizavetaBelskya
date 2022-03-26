@@ -17,7 +17,6 @@ int main(int argc, char** argv) {
    */
 
   BinarySearchTree tree;
-
   tree.Insert(8, 1);
   tree.Insert(3, 2);
   tree.Insert(10, 3);
@@ -27,8 +26,8 @@ int main(int argc, char** argv) {
   tree.Insert(7, 7);
   tree.Insert(14, 8);
   tree.Insert(13, 9);
-
-  cout << "Write your code here ...\n";
-
+  tree.Remove(8);
+  cout << tree.root()->key << endl;
+  cout << tree.root()->right->left->key << endl;
   return 0;
 }
