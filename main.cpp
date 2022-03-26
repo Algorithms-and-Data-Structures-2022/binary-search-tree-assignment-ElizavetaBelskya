@@ -27,8 +27,7 @@ int main(int argc, char** argv) {
   tree.Insert(7, 7);
   tree.Insert(14, 8);
   tree.Insert(13, 9);
-
-  cout << "Write your code here ...\n";
+  cout << tree.FindMin().value();
 
   return 0;
 }

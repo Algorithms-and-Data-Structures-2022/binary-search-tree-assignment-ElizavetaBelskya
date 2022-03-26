@@ -7,7 +7,12 @@ namespace assignment {
   }
 
   void BinarySearchTree::Insert(int key, int value) {
-    insert(key, value, root_);
+    if (root_!= nullptr){
+      insert(key, value, root_);
+    } else {
+      Node* newNode = new Node(key, value);
+      root_ = newNode;
+    }
   }
 
   bool BinarySearchTree::Remove(int key) {
@@ -41,14 +46,14 @@ namespace assignment {
 
   std::optional<int> BinarySearchTree::FindMin() const {
     if (root_ != nullptr) {
-      find_min(root_);
+      return find_min(root_)->value;
     }
     return std::nullopt;
   }
 
   std::optional<int> BinarySearchTree::FindMax() const {
     if (root_ != nullptr) {
-      find_max(root_);
+      return find_max(root_)->value;
     }
     return std::nullopt;
   }
@@ -67,9 +72,19 @@ namespace assignment {
     if (node->key == key) {
       node->value = value;
     } else if (key > node->key) {
-      insert(key, value, node->right);
+      if (node->right!= nullptr) {
+        insert(key, value, node->right);
+      } else {
+        Node* newNode = new Node(key,value);
+        node->right = newNode;
+      }
     } else if (key < node->key) {
-      insert(key, value, node->left);
+      if (node->left!= nullptr) {
+        insert(key, value, node->left);
+      } else {
+        Node* newNode = new Node(key,value);
+        node->left = newNode;
+      }
     }
   }
 
@@ -136,7 +151,7 @@ namespace assignment {
 
   Node* BinarySearchTree::find_max(Node* node) const {
     if (node->right != nullptr) {
-      return find_min(node->right);
+      return find_max(node->right);
     } else {
       return node;
     }
