@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
   tree.Insert(7, 7);
   tree.Insert(14, 8);
   tree.Insert(13, 9);
-  cout << tree.Remove(8);
-  cout << tree.root()->key;
+  cout << tree.Remove(8) << endl;
+  cout << tree.root()->key << endl;
   return 0;
 }

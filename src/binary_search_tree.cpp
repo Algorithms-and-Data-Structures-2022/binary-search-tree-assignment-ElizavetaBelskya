@@ -108,6 +108,7 @@ namespace assignment {
         Node* minim = find_min(node->right);
         node->key = minim->key;
         node->value = minim->value;
+        node->right = minim->right;
         minim = nullptr;
         return true;
       }
