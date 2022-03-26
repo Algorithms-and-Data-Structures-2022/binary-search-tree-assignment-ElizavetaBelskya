@@ -108,12 +108,9 @@ namespace assignment {
         Node* minim = find_min(node->right);
         node->key = minim->key;
         node->value = minim->value;
-        node->right = minim->right;
-        minim = nullptr;
-        return true;
+        return remove(minim->key, node->right);
       }
-    }
-    if (key > node->key) {
+    } else if (key > node->key) {
       if (node->right != nullptr) {
         return remove(key, node->right);
       } else {
