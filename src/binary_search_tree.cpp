@@ -115,13 +115,13 @@ namespace assignment {
     }
     if (key > node->key) {
       if (node->right != nullptr) {
-        remove(key, node->right);
+        return remove(key, node->right);
       } else {
         return false;
       }
-    } else {
+    } else if (key < node->key){
       if (node->left != nullptr) {
-        remove(key, node->left);
+        return remove(key, node->left);
       } else {
         return false;
       }
